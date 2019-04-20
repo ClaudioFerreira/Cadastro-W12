@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, FormsModule, NgForm } from '@angular/forms'
 import { CadastroService } from 'src/app/services/cadastro.service';
 import { Cadastro } from 'src/app/models/cadastro';
 
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -14,6 +16,7 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private mensagem: ToastrService,
     private cadastroService: CadastroService,
   ) { }
 
@@ -39,6 +42,7 @@ export class CadastroComponent implements OnInit {
   salvarCadastro() {
     this.cadastroService.postCadastro(this.formCadastro.value);
     this.getCadastros();
+    this.mensagem.success(" Sucesso ao adiconar novo contato! ", 'Sucesso!');
    }
 
   
