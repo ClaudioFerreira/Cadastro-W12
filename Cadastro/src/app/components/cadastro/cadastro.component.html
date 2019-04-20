@@ -3,18 +3,21 @@
     <div class="col-md-5" id="cadastro">
       <h2>Cadastro</h2>
 
-      <form [formGroup]="formCadastro" >
+      <form [formGroup]="formCadastro">
         <div class="form-group">
-          <input formControlName="nome" type="text" class="form-control" id="nome" aria-describedby="nomelHelp" placeholder="Entre com o nome">
+          <input formControlName="nome" type="text" class="form-control" id="nome" aria-describedby="nomelHelp"
+            placeholder="Entre com o nome">
           <small id="nomeHelp" class="form-text text-muted">Entre com o nome a ser cadastrado.</small>
         </div>
 
         <div class="form-group">
-          <input formControlName="telefone" type="number" class="form-control" id="telefone" aria-describedby="telefoneHelp" placeholder="Entre com o telefone">
+          <input formControlName="telefone" type="number" class="form-control" id="telefone"
+            aria-describedby="telefoneHelp" placeholder="Entre com o telefone">
           <small id="telefoneHelp" class="form-text text-muted">Entre aqui como o telefone a ser cadastrado.</small>
         </div>
 
-        <button (click)="salvarCadastro()" type="submit" class="btn btn-success btn-block"> <i class="fas fa-check"></i> Salvar</button>
+        <button (click)="salvarCadastro()" type="submit" class="btn btn-success btn-block"> <i class="fas fa-check"></i>
+          Salvar</button>
       </form>
 
     </div>
@@ -28,8 +31,11 @@
             class="list-group-item d-flex justify-content-between align-items-center">
             <i class="fas fa-user"></i> {{ item.nome }}
             <i class="fas fa-phone"></i> {{ item.telefone }}
-            <a href=""> <span class="badge badge-primary"> <i class="fas fa-edit"></i> </span> </a>
-            <a href=""> <span class="badge badge-danger"> <i class="fas fa-user-minus"></i> </span> </a>
+
+            <button (click)="deleteCadastro(item._id)" type="submit" class="btn btn-outline-info"> <i
+                class="fas fa-edit"></i></button>
+            <button (click)="deleteCadastro(item._id)" type="submit" class="btn btn-outline-danger"> <i
+                class="fas fa-user-minus"></i></button>
           </li>
 
         </ul>

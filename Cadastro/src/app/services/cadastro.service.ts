@@ -27,4 +27,8 @@ export class CadastroService {
       });
   }
 
+  destroyCadastro(id) {
+    return this.http.delete(`${this.URL_API}/${id}`);
+  }
+
 }

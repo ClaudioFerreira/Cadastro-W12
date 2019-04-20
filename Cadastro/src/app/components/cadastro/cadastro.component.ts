@@ -42,11 +42,15 @@ export class CadastroComponent implements OnInit {
   salvarCadastro() {
     this.cadastroService.postCadastro(this.formCadastro.value);
     this.getCadastros();
-    this.mensagem.success(" Sucesso ao adiconar novo contato! ", 'Sucesso!');
-   }
-
+    this.mensagem.success(" Sucesso ao adiconar novo contato! ", 'Adicionado!');
+  }
   
-
+  deleteCadastro(id) {
+    console.log(id);
+    this.cadastroService.destroyCadastro(id).subscribe(res => {
+      this.mensagem.warning(" Sucesso ao remover o contato! ", 'Removido!');      
+    });
+  }
   ngOnInit() {
     this.createForm();
     this.getCadastros();
