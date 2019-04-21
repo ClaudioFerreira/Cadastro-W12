@@ -4,3 +4,11 @@
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
+.btn-outline-info {
+    border-color: transparent;
+}
+
+.btn-outline-danger{
+    border-color: transparent;
+}

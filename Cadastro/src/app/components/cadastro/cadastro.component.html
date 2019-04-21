@@ -4,6 +4,7 @@
       <h2>Cadastro</h2>
 
       <form [formGroup]="formCadastro">
+        <input formControlName="_id" type="hidden" id="_id" />
         <div class="form-group">
           <input formControlName="nome" type="text" class="form-control" id="nome" aria-describedby="nomelHelp"
             placeholder="Entre com o nome">
@@ -16,8 +17,14 @@
           <small id="telefoneHelp" class="form-text text-muted">Entre aqui como o telefone a ser cadastrado.</small>
         </div>
 
-        <button (click)="salvarCadastro()" type="submit" class="btn btn-success btn-block"> <i class="fas fa-check"></i>
-          Salvar</button>
+        <button (click)="resetForm(formCadastro)" type="submit" class="btn btn-danger btn-block">
+          <i class="fas fa-user-minus"></i>
+          Limpar
+        </button>
+        <button (click)="salvarCadastro()" type="submit" class="btn btn-success btn-block">
+          <i class="fas fa-check"></i>
+          Salvar
+        </button>
       </form>
 
     </div>
@@ -32,10 +39,12 @@
             <i class="fas fa-user"></i> {{ item.nome }}
             <i class="fas fa-phone"></i> {{ item.telefone }}
 
-            <button (click)="deleteCadastro(item._id)" type="submit" class="btn btn-outline-info"> <i
-                class="fas fa-edit"></i></button>
-            <button (click)="deleteCadastro(item._id)" type="submit" class="btn btn-outline-danger"> <i
-                class="fas fa-user-minus"></i></button>
+            <button (click)="editCadastro(item)" type="submit" class="btn btn-outline-info">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button (click)="deleteCadastro(item._id)" type="submit" class="btn btn-outline-danger">
+              <i class="fas fa-user-minus"></i>
+            </button>
           </li>
 
         </ul>
