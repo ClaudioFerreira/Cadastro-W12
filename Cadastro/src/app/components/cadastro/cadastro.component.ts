@@ -49,16 +49,17 @@ export class CadastroComponent implements OnInit {
     } else {
       if (this.formCadastro.value._id == "" || this.formCadastro.value._id == undefined) {
         this.cadastroService.postCadastro(this.formCadastro.value);
-        this.getCadastros();
         this.mensagem.success(" Sucesso ao adiconar novo contato! ", 'Adicionado!');
       }
       else {
         this.cadastroService.updateCadastro(this.formCadastro.value);
-        this.getCadastros();
         this.mensagem.info(" Sucesso ao editar o contato! ", 'Editado!');
       }
       this.resetForm(this.formCadastro);
     }
+
+    this.getCadastros();
+
   }
 
   editCadastro(item) {

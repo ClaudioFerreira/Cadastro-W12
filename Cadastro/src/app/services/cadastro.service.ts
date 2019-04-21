@@ -28,9 +28,11 @@ export class CadastroService {
   }
 
   updateCadastro(cadastro: Cadastro) {
-    console.log( cadastro );
-    console.log('service: ' + this.URL_API + '/' + cadastro._id );
-    return this.http.put(this.URL_API + '/' + cadastro._id, cadastro);
+
+    return this.http.put(this.URL_API + '/' + cadastro._id, cadastro)
+      .subscribe(res => {
+        console.log(res);
+      });
   }
 
   destroyCadastro(id) {
